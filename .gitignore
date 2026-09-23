@@ -26,3 +26,6 @@ release/
 .DS_Store
 Thumbs.db
 Desktop.ini
+
+#zip files
+*.zip
