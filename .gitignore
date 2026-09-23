@@ -1,0 +1,28 @@
+# Local developer configuration
+Directory.Build.props
+
+# Build output
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# VS Code
+.vscode/
+
+# JetBrains
+.idea/
+
+# Logs
+*.log
+
+# Local release output
+release/
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
