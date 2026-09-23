@@ -24,9 +24,6 @@ namespace GK2QueueCount.Patches
             if (data?.CraftComponent?.CurrentCraftElement == null)
                 return;
 
-            CraftElementBase craft =
-                data.CraftComponent.CurrentCraftElement;
-
             UIItemCell craftResultItem =
                 Traverse.Create(__instance)
                     .Field("craftResultItem")
@@ -49,8 +46,22 @@ namespace GK2QueueCount.Patches
                     originalCountLabel
                 );
 
-            queueLabel.text = $"×{craft.Count}";
-            queueLabel.gameObject.SetActive(true);
+            int remainingCrafts = 0;
+
+            CraftElementBase currentCraft =
+                data.CraftComponent.CurrentCraftElement;
+
+            foreach (CraftElementBase queueElement in data.CraftComponent.CraftElementsQueue)
+            {
+                if (queueElement != null &&
+                    queueElement.CraftId == currentCraft.CraftId)
+                {
+                    remainingCrafts += queueElement.Count;
+                }
+            }
+
+            queueLabel.text = $"×{remainingCrafts}";
+            queueLabel.gameObject.SetActive(remainingCrafts > 0);
         }
 
         private static TMP_Text GetOrCreateQueueLabel(
@@ -64,7 +75,8 @@ namespace GK2QueueCount.Patches
 
             if (existing != null)
             {
-                TMP_Text existingLabel = existing.GetComponent<TMP_Text>();
+                TMP_Text existingLabel =
+                    existing.GetComponent<TMP_Text>();
 
                 if (existingLabel != null)
                     return existingLabel;
@@ -83,7 +95,9 @@ namespace GK2QueueCount.Patches
                 obj.GetComponent<TextMeshProUGUI>();
 
             // Optik vom originalen GK2-Counter übernehmen.
-            queueLabel.font = originalCountLabel.font;
+            queueLabel.font =
+                originalCountLabel.font;
+
             queueLabel.fontSharedMaterial =
                 originalCountLabel.fontSharedMaterial;
 
@@ -107,16 +121,20 @@ namespace GK2QueueCount.Patches
             queueLabel.alignment =
                 TextAlignmentOptions.TopLeft;
 
-            RectTransform rect = queueLabel.rectTransform;
+            RectTransform rect =
+                queueLabel.rectTransform;
 
             // Oben links innerhalb des Icons.
             rect.anchorMin = new Vector2(0f, 1f);
             rect.anchorMax = new Vector2(0f, 1f);
             rect.pivot = new Vector2(0f, 1f);
 
-            rect.anchoredPosition = new Vector2(5f, -5f);
-            rect.sizeDelta = new Vector2(50f, 22f);
-            
+            rect.anchoredPosition =
+                new Vector2(5f, -5f);
+
+            rect.sizeDelta =
+                new Vector2(50f, 22f);
+
             return queueLabel;
         }
     }
