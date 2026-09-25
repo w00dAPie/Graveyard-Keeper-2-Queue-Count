@@ -1,13 +1,9 @@
-﻿using BepInEx;
+using BepInEx;
 using HarmonyLib;
 
 namespace GK2QueueCount
 {
-    [BepInPlugin(
-        "de.w00dst0ckOo.gk2.queuecount",
-        "GK2 Queue Count",
-        "0.3.0"
-    )]
+    [BepInPlugin("de.w00dst0ckOo.gk2.queuecount", "GK2 Queue Count", "0.3.1")]
     public class Plugin : BaseUnityPlugin
     {
         private Harmony _harmony;
@@ -28,3 +24,4 @@ namespace GK2QueueCount
         }
     }
 }
+

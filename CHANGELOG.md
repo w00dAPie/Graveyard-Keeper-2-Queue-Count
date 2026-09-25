@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.3.1 - 2026-09-25
+
+### Changed
+
+- Reduced repeated reflection work during craft hint redraws.
+- Added caching for Queue Count UI references while preserving pooled widget behavior.
+- Reduced unnecessary string formatting and visibility updates when the displayed queue count has not changed.
+- Improved runtime efficiency without changing queue-count behavior.
+- Release builds now use the optimized Release configuration.
+
 ## 0.3.0
 
 - Added support for mixed crafting queues.
