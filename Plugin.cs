@@ -1,21 +1,25 @@
-using BepInEx;
+﻿using BepInEx;
 using HarmonyLib;
 
 namespace GK2QueueCount
 {
-    [BepInPlugin("de.w00dst0ckOo.gk2.queuecount", "GK2 Queue Count", "0.3.1")]
+    [BepInPlugin(PluginGuid, PluginName , PluginVersion)]
     public class Plugin : BaseUnityPlugin
     {
         private Harmony _harmony;
 
+        public const string PluginGuid = "de.w00dst0ckOo.gk2.queuecount";
+        public const string PluginName = "GK2 Queue Count";
+        public const string PluginVersion = "0.3.1";
+
         private void Awake()
         {
-            Logger.LogInfo("GK2 Queue Count 0.3.0 loading...");
+            Logger.LogInfo($"{PluginName} {PluginVersion} loading...");
 
-            _harmony = new Harmony("de.w00dst0ckOo.gk2.queuecount");
+            _harmony = new Harmony(PluginGuid);
             _harmony.PatchAll();
 
-            Logger.LogInfo("GK2 Queue Count loaded.");
+            Logger.LogInfo($"{PluginName} {PluginVersion} loaded.");
         }
 
         private void OnDestroy()
