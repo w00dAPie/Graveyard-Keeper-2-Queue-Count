@@ -1,0 +1,9 @@
+{
+  "name": "GK2QueueCount",
+  "version_number": "0.3.1",
+  "website_url": "https://github.com/w00dAPie/Graveyard-Keeper-2-Queue-Count",
+  "description": "Displays the total queued craft amount directly in Graveyard Keeper 2 crafting queues.",
+  "dependencies": [
+    "BepInEx-BepInExPack-5.4.2305"
+  ]
+}
