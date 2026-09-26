@@ -1,8 +1,5 @@
 
 ### GK2QueueCount
-
-Hier würde ich vor allem `Work in progress` rausnehmen, wenn du das Ding inzwischen regulär veröffentlichst:
-
 ```markdown
 # GK2 Queue Count
 
