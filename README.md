@@ -1,6 +1,4 @@
 
-### GK2QueueCount
-```markdown
 # GK2 Queue Count
 
 A small BepInEx mod for Graveyard Keeper 2 that displays the remaining
